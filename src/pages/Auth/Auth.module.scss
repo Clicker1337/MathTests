@@ -1,0 +1,81 @@
+@import '../../styles/variables.scss';
+
+.auth {
+    background-color: $backgroundcolor;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper {
+    display: flex;
+    margin: 75px auto;
+}
+
+.form {
+    width: 550px;
+    height: 450px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+
+    input {
+        width: 400px;
+        height: 35px;
+        border-radius: 5px;
+        border: none;
+        background: #F1F4F7;
+        margin-bottom: 15px;
+    }
+    input:focus {
+        outline: 1px;
+    }
+}
+
+.data {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    width: 400px;
+    height: 45px;
+    border-radius: 5px;
+    background-color: rgba(255, 83, 104, 1);
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease 0s;
+    border: none;
+
+    font-weight: 700;
+
+    margin-top: 30px;
+}
+
+.button:enabled:hover {
+    box-shadow: 0 6px 8px 0 rgba(255, 83, 104, 0.3), 0 4px 10px 0 rgba(255, 83, 104, 0.3);
+    transform: translateY(-1px);
+}
+
+.button:enabled:active {
+    transform: translateY(1px);
+    background-color: rgba(255, 83, 104, 1);
+    color: rgb(255, 247, 240);
+}
+
+.button:disabled {
+    background-color: rgb(143, 143, 143);
+}
+
+.title {
+    font-weight: 800;
+    font-size: 26px;
+    color: rgba(32, 32, 32, 1);
+    padding-bottom: 35px;
+}
+
+.errortext {
+    color: red;
+    font-size: 14px;
+}
