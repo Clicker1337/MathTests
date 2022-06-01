@@ -33,6 +33,7 @@
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
 
     margin-bottom: 17px;
+    z-index: 2;
 }
 
 .title2 {
@@ -43,4 +44,21 @@
 
 .subtitle2 {
     margin: 0 auto 0px 27px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    margin: 25px 20px;
+    height: 30px;
+    width: 100px;
+}
+
+.button2 {
+    margin: 25px 20px;
+    height: 30px;
+    width: 200px;
 }

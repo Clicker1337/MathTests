@@ -1,18 +1,10 @@
 import s from './Auth.module.scss'
-import Button from '../Home/Components/Buttons/ButtonHeader'
 import { useEffect, useState } from 'react'
-import React from 'react'
 import axios from 'axios'
+import { InfoService } from './AxiosRes'
 
 
 type Props = {}
-
-
-export default class PersonList extends React.Component {
-
-}
-
-
 
 export const Auth = (props: Props) => {
 
@@ -20,7 +12,7 @@ export const Auth = (props: Props) => {
   const [password, setPassword] = useState('')
   const [emailDirty, setEmailDirty] = useState(false)
   const [passwordDirty, setPasswordDirty] = useState(false)
-  const [emailError, setEmailError] = useState('Email не может быть пустым')
+  const [emailError, setEmailError] = useState('Логин не может быть пустым')
   const [passwordError, setPasswordError] = useState('Пароль не может быть пустым')
   const [formValid, setFormValid] = useState(false)
 
@@ -37,12 +29,7 @@ export const Auth = (props: Props) => {
 
   const emailHandler = (e: any) => {
     setEmail(e.target.value)
-    const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (!re.test(String(e.target.value).toLowerCase())) {
-      setEmailError('Некорректный email')
-    } else {
-      setEmailError("")
-    }
+    setEmailError("")
   }
 
   const passwordHandler = (e: any) => {
@@ -66,22 +53,17 @@ export const Auth = (props: Props) => {
 
   }, [emailError, passwordError]);
 
-  const [switcher, setSwitcher] = useState(false)
 
-  function buttonClicked() {
-    setSwitcher(true);
-  }
-
-  useEffect(() => {
-    if (switcher == true) {
-      axios.post('', email)
-      .then(response => {
-        console.log(response);
-        console.log("кнопка была нажата и функция прошла");
-        console.log(response.data);
-      })
+    function fetchInfo() {
+        try {
+            axios.post('/', {
+              login: email,
+              password: password
+            })
+        } catch (e) {
+            alert(e)
+        }
     }
-  }, []);
 
   return (
     <div className={s.auth}>
@@ -91,12 +73,12 @@ export const Auth = (props: Props) => {
             <p className={s.title}>Вход</p>
 
             {(emailDirty && emailError) && <div className={s.errortext}> {emailError} </div>}
-            <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='Email...' />
+            <input onChange={e => emailHandler(e)} value={email} onBlur={e => blurHandler(e)} name='email' type='text' placeholder='Логин...' />
 
             {(passwordDirty && passwordError) && <div className={s.errortext}> {passwordError} </div>}
             <input onChange={e => passwordHandler(e)} value={password} onBlur={e => blurHandler(e)} name='password' type='password' placeholder='Пароль...' />
 
-            <button onClick={buttonClicked} disabled={!formValid} className={s.button}>Войти</button>
+            <button onClick={fetchInfo} disabled={!formValid} className={s.button}>Войти</button>
           </div>
         </div>
       </div>
