@@ -12,17 +12,9 @@
     margin: 75px auto;
 }
 
-.linktext {
-    padding-top: 20px;
-    font-weight: 400;
-    font-size: 16px;
-    color: rgb(37, 193, 255);
-    text-decoration: none;
-}
-
 .form {
     width: 550px;
-    height: 450px;
+    height: 600px;
     background: #FFFFFF;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
@@ -80,7 +72,8 @@
     font-weight: 800;
     font-size: 26px;
     color: rgba(32, 32, 32, 1);
-    padding-bottom: 35px;
+    padding-bottom: 55px;
+    padding-top: 15px;
 }
 
 .errortext {
